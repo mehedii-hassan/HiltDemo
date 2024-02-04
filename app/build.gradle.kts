@@ -1,6 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
+
 }
 
 android {
@@ -33,6 +36,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        dataBinding; true
+    }
+
 }
 
 dependencies {
@@ -44,4 +52,29 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    //hilt
+    implementation("com.google.dagger:hilt-android:2.44")
+    implementation("com.google.dagger:hilt-android-compiler:2.44")
+
+    //nav component
+    val navVersion = "2.7.6"
+    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
+
+    //retrofit library & Gson converter-------------
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.1")
+
+    //interceptor
+    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.1")
+
+    //picasso
+    implementation("com.squareup.picasso:picasso:2.71828")
+
+    //glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
+
 }
